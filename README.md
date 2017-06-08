@@ -10,7 +10,7 @@ and mongo requests.
 ### queryToMongo.toQuery(query, options)
 Convert the mongo request to a rest one:
 ```javascript
-const queryToMongo = require('query-to-mongo')
+const queryToMongo = require('query-to-mongo-and-back')
 let query = queryToMongo.toQuery(
   {name: 'john', age: { '$gt': 21 }},
   { limit: 10 }
@@ -21,7 +21,7 @@ console.log(query) //name=john&age>21&limit=10
 ### queryToMongo.fromQuery(query, options)
 Convert the mongo request to a rest one:
 ```javascript
-const queryToMongo = require('query-to-mongo')
+const queryToMongo = require('query-to-mongo-and-back')
 let query = queryToMongo.toQuery('name=john&age>21&limit=10')
 console.log(query)
 /*
