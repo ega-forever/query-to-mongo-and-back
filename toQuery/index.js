@@ -1,9 +1,12 @@
 const transformCriteria = require('./libs/transformCriteria'),
-  transformOptions = require('./libs/transformOptions');
+  transformOptions = require('./libs/transformOptions'),
+  _ = require('lodash');
 
-
-module.exports = (criteria, options) => {
-
-  return [transformCriteria(criteria), transformOptions(options)].join('&');
-
-};
+module.exports = (criteria, options) =>
+  _.chain([
+    transformCriteria(criteria),
+    transformOptions(options)
+  ])
+    .compact()
+    .join('&')
+    .value();
